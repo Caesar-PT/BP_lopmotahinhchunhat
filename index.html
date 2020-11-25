@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="200" height="200"></canvas>
+<script>
+    function Rectangle(length, width){
+        this.length = length;
+        this.width = width;
+        // Tính diện tích
+        this.Area = function (){
+            return this.length * this.width;
+        }
+        this.Perimeter = function (){
+            return (this.length + this.width) * 2;
+        }
+        this.toString = function (){
+            let str = '';
+            str += '<br>Diện tích: ' + this.Area()
+            str += '<br>Chu vi: ' + this.Perimeter()
+            return str;
+        }
+        this.drawRec = function (){
+            let c = document.getElementById('myCanvas');
+            let ctx = c.getContext('2d');
+            ctx.fillRect(50, 50, this.length, this.width);
+        }
+    }
+    let hinh1 = new Rectangle(90, 60);
+    hinh1.drawRec();
+    document.write(hinh1.toString());
+</script>
+</body>
+</html>
